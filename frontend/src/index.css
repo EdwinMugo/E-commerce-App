@@ -1,0 +1,24 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Prata&family=Roboto&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+    font-family: 'Outfit', sans-serif;
+}
+
+a.active hr{
+    display:block
+}
+::-webkit-scrollbar{
+    display: none;
+}
+@media (max-width:640px) {
+    a.active{
+        background-color:#8F4465;
+        color: white;
+    }
+}
