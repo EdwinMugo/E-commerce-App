@@ -8,7 +8,9 @@ import ShopProvider from './context/ShopContext.jsx'
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
   <ShopProvider>
+    <StrictMode> 
     <App />
+    </StrictMode>
   </ShopProvider>
   </BrowserRouter>
 )

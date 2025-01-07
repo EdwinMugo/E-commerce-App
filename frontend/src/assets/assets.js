@@ -103,7 +103,7 @@ export const products = [
         image: [p_img1],
         category: "Wines",
         subCategory: "Red Wine",
-        sizes: ["S", "M", "L"],
+        sizes: ["750ml Bottle", "1 Litre Bottle"],
         date: 1716634345448,
         bestseller: true,
     },
@@ -115,7 +115,7 @@ export const products = [
         image: [p_img2_1],
         category: "Wines",
         subCategory: "White Wine",
-        sizes: ["M", "L", "XL"],
+        sizes: ["750ml Bottle", "1 Litre Bottle"],
         date: 1716621345448,
         bestseller: false
     },
@@ -127,7 +127,7 @@ export const products = [
         image: [p_img3],
         category: "Spirit",
         subCategory: "Whisky",
-        sizes: ["S", "L", "XL"],
+        sizes: ["250ml Bottle", "750ml Bottle"],
         date: 1716234545448,
         bestseller: false
     },
@@ -139,7 +139,7 @@ export const products = [
         image: [p_img4],
         category: "Spirit",
         subCategory: "Whisky",
-        sizes: ["S", "M", "XXL"],
+        sizes: ["250ml Bottle", "750ml Bottle"],
         date: 1716621345448,
         bestseller: false
     },
@@ -151,7 +151,7 @@ export const products = [
         image: [p_img5],
         category: "Spirit",
         subCategory: "Whisky",
-        sizes: ["M", "L", "XL"],
+        sizes: ["750ml Bottle", "1 Litre Bottle"],
         date: 1716622345448,
         bestseller: false
     },
