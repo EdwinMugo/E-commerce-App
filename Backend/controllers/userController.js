@@ -11,6 +11,34 @@ const createToken = (id) =>{
 // route for user login
 const loginUser = async (req, res) => {
 
+    try{
+    //extract passwaord and email from the req body
+    const {email, password} = req.body;
+
+    // check if user exists in the DB
+    const user = await userModel.findOne({email});
+    
+    // if user does not exist return an error message
+    if (!user){
+        return res.json({success:false, message: "User not found in DB"});
+    }
+    
+    // compare the hashed password with the entered password
+    const isMatch = await bcrypt.compare(password, user.password);
+    
+    // if password match or not to return an error message
+    if (isMatch){
+
+        const token = createToken(user._id);
+        return res.json({success:true, token});
+    } else {
+        return res.json({success:false, message: "Incorrect password"});
+    }
+} catch (e) {
+    console.log(e);
+    res.json({success: false, message: e.message});
+}
+
 }
 
 
@@ -18,7 +46,7 @@ const loginUser = async (req, res) => {
 const registerUser = async (req, res) => {
  try{
     const {name, email, password} = req.body;
-    // check if user already exists
+    // check if user already exists in the DB
     const userExits = await userModel.findOne({email});
 
     if(userExits){
@@ -56,8 +84,22 @@ const registerUser = async (req, res) => {
  }
 }
 
-//route for admin login
+//route for admin login with jwt token authentication
 const adminLogin = async(req, res) => {
+    try{
+        const {email, password} = req.body;
+
+        if(email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD){
+            const token = jwt.sign( email+password, process.env.JWT_SECRET_KEY);
+            res.json({success: true, token});
+        }else {
+            res.json({success: false, message: "Invalid admin credentials"});
+        }
+
+    }catch(err){
+        console.log(err);
+         res.json({success: false, message: err.message});
+    }
 
 }
 
